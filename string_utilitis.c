@@ -90,29 +90,6 @@ char *_strcpy(char *dest, char *src)
 }
 
 /**
- *_strncmp - string n compare
- * @s1: first string
- * @s2: second string
- * @n: bytes to compare
- * Return: 0 if string is indetical, less than 0 if s1 shorter than s2
- * greater than 0 if s1 is longer than s2
- */
-int _strncmp(char *s1, char *s2, unsigned long n)
-{
-	unsigned long len;
-
-	for (len = 0; s1[len] && s2[len] && len < n; len++)
-	{
-		if (s1[len] > s2[len])
-			return (s1[len] - s2[len]);
-		if (i == n)
-			return (0);
-		else
-			return (-1);
-	}
-}
-
-/**
  *_strdup - duplicated string
  *@str: string
  *Return: duplicated string
