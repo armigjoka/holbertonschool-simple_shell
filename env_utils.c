@@ -1,30 +1,32 @@
 #include "shell.h"
 /**
- * _printenv - called from god knows
+ * _printenv - called from main
  * Return: int
  */
 int _printenv(void)
 {
 	str = environ[0];
-	while (str[i] != NULL)
+	while (str[i] != '\0')
 	{
-		printf("%s", str[i]);
-		putchar('\n');
-		str = enivron[i];
-		i++;
+		/** 1 means standard output */
+		write(1, str, _strlen(str));
+		write(1, "\n", 1);
+		str = enivron[i++];
 	}
 	return (0);
 }
 /**
- * _getenv - idk where this is called from either
+ * _getenv - called from main
  * @name: string
  * Return: string
  */
 char *_getenv(char *name)
 {
-	len = length(name);
-	while (enivron[i] != NULL)
-		if (environ[i] == len) <---- wrong
-			return environ[i][len];
+	int i = 0, len;
+	
+	len = _strlen(name);
+	while (environ[i] != NULL)
+		if (_str_n_cmp(environ[i], name, len) == 0)
+			return (environ[i][len]);
 	return (NULL);
 }
