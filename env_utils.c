@@ -37,6 +37,11 @@ char *_getenv(char *name)
 	}
 	return (NULL);
 }
+/*
+ * main - entry point
+ *
+ * Return (void)
+ */
 int main(void)
 {
 	printf("%s\n", _getenv("HOME"));

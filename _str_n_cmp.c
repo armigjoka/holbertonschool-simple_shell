@@ -3,7 +3,7 @@
  * _str_n_cmp - called
  * @s1: string
  * @s2: string
- * n: int
+ * @n: int
  * Return: int
  */
 int _str_n_cmp(char *s1, char *s2, int n)
@@ -17,7 +17,9 @@ int _str_n_cmp(char *s1, char *s2, int n)
 		if (c1 == '\0' || c1 != c2)
 		{
 			if (c1 > c2)
+			{
 				return (1);
+			}
 			else
 			{
 				if (c1 < c2)
