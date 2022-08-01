@@ -1,6 +1,6 @@
 What is Simple Shell?
 
-Simple Shell is a program that make the implementation of the command-line for the Unix operating system created by students of Hoblerton School Armela Gjoka and Vivian Xhumetiku. 
+Simple Shell is a program that make the implementation of the command-line for the Unix operating system created by students of Hoblerton School Armela Gjoka and viviani22. 
 
 Some of the learning objectives about simple shell are:
 
