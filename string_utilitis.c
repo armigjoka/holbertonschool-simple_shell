@@ -7,7 +7,7 @@
  *@dest: function that appends the src
  *Return: 0
  */
-char *_strcat(chat *dest, char *src)
+char *_strcat(char *dest, char *src)
 {
 	int i, j;
 
@@ -78,9 +78,9 @@ int _strcmp(char *s1, char *s2)
  */
 char *_strcpy(char *dest, char *src)
 {
-	int = 0;
+	int i = 0;
 
-	while (src[i] != '\0')
+	while(src[i] != '\0')
 	{
 		dest[i] = src[i];
 		i++;

@@ -6,7 +6,7 @@
  * n: int
  * Return: int
  */
-int _str_n_cmp(const char *s1, const char *s2, size_t n)
+int _str_n_cmp(char *s1, char *s2, int n)
 {
 	char c1, c2;
 
