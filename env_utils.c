@@ -37,10 +37,9 @@ char *_getenv(char *name)
 	}
 	return (NULL);
 }
-/*
+/**
  * main - entry point
- *
- * Return (void)
+ * Return: (void)
  */
 int main(void)
 {
