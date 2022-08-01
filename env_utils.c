@@ -37,7 +37,7 @@ char *_getenv(char *name)
 	}
 	return (NULL);
 }
-int main()
+int main(void)
 {
 	printf("%s\n", _getenv("HOME"));
 	return (0);

@@ -38,7 +38,7 @@ int main(int argc, char **argv)
  * command_read - called from main
  * @s: string
  * @characters: size_t
- * Return: int 
+ * Return: int
  */
 int command_read(char *s, size_t characters)
 {

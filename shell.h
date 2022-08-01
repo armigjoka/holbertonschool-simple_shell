@@ -15,7 +15,6 @@ int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
-<<<<<<< HEAD
 int _str_n_cmp(char *s1, char *s2, unsigned long n);
 char *_strdup(char *str);
 
