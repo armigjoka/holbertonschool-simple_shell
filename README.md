@@ -268,4 +268,4 @@ All header files are included guarded.
 
 Also we have used the system calls.
 
-Authors of the project are: Armela Gjoka, Vivian Xhumetiku
+Authors of the project are: Armela Gjoka, viviani22
