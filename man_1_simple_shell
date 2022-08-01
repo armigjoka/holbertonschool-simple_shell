@@ -63,4 +63,4 @@ acces(2), chdir(2), close(2), closedir(2), execve(2), exit(2), fork(2), free(3),
 No bugs known.
 
 .SH AUTHORS
-armigjoka, vivian22(Armela Gjoka, Vivian Xhumetiku.)
+armigjoka (Armela Gjoka), viviani22
