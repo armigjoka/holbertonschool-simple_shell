@@ -6,11 +6,12 @@
  */
 char *command_path(char *cmd)
 {
-	char *path =, *path_array[100], new_path = NULL;
-	int token, i;
+	char *path = _strdup(_getenv("PATH")), *path_array[100];
+	char *new_path = NULL, *tokens = strtok(path, ":");
+	int  i;
 	struct stat buf;
 
-	new_path = malloc(sizeof());
+	new_path = malloc(sizeof(char) * 100);
 	if (_geten("PATH")[0] == ":")
 		if (stat(cmd, buf) == 0)
 			return (_strdup(cmd));
