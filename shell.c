@@ -1,27 +1,27 @@
 #include "shell.h"
-extern char *name;
+char *name;
 /**
  * main - point of entry
  * @argc: argument count
  * @argv: argument vector
  * @Return: 1 if successful | 0 otherwise
  */
-int main(int argc, char **argv)
+int main(int __attribute__ ((unused))argc, char **argv)
 {
 	char *line = NULL;
-	ssize_t buf_size;
-	int chars = 0;
+	size_t buf_size = 0;
+	ssize_t chars = 0;
 
 	name = argv[0];
 	while (1)
 	{
 		if (isatty(STDIN_FILENO) == 1)
-			printf("$ ");
+			write(1, "$ ", 2);
 		chars = getline(&line, &buf_size, stdin);
 		if (chars == -1)
 		{
 			if (isatty(STDIN_FILENO) == -1)
-				putchar('\n');
+				write(1, "\n", 1);
 			break;
 		}
 		if (line[chars - 1] == '\n')
@@ -41,15 +41,15 @@ int main(int argc, char **argv)
  * @characters: size_t
  * Return: int 
  */
-int command_read(char *s, size_t characters)
+int command_read(char *s, size_t __attribute__ ((unused))characters)
 {
 	char *token = NULL;
-	int *cmd_array[100];
+	char *cmd_array[100];
 	int i = 0;
 
-	if (_strcmp(s, "exit") == 0)
+	if (strcmp(s, "exit") == 0)
 		return (2);
-	if (_strcmp(s, "env") == 0)
+	if (strcmp(s, "env") == 0)
 		return (_printenv());
 
 	token = strtok(s, " ");
@@ -59,7 +59,7 @@ int command_read(char *s, size_t characters)
 		i++;
 		token = strtok(NULL, " ");
 	}
-	cmd_array[i] = '\0';
+	cmd_array[i] = NULL;
 	return (execute(cmd_array));
 }
 /**
@@ -67,23 +67,27 @@ int command_read(char *s, size_t characters)
  * @cmd_array: array of strings
  * Return: int
  */
-int execute(char *cmd_array)
+int execute(char *cmd_array[])
 {
 	char *exe_path = NULL, *cmd = NULL;
-	int pid, status;
+	int status;
+	pid_t pid;
 
 	cmd = cmd_array[0];
 	exe_path = command_path(cmd);
 
 	if (exe_path == NULL)
 	{
-		fprintf(stderr, "Path is null\n");
+		write(2, name, strlen(name));
+		write(2, ": ", 2);
+		write(2, cmd, strlen(cmd));
+		write(2, "Command not found\n", 18);
 		return (3);
 	}
 	pid = fork();
 	if (pid < 0)
 	{
-		fprintf(stderr, "Process doesn't exist\n");
+		perror("error");
 		return (-1);
 	}
 	if (pid > 0)
@@ -92,7 +96,16 @@ int execute(char *cmd_array)
 	}
 	else if (pid == 0)
 	{
-		execve(exe_path, cmd_array, environ);
+		if (environ)
+		{
+			execve(exe_path, cmd_array, environ);
+			perror("error");
+			exit (1);
+		}
+		else
+		{
+			execve(exe_path, cmd_array, NULL);
+		}
 	}
 	free(exe_path);
 	return (0);

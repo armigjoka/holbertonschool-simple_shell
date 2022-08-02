@@ -19,5 +19,8 @@ char *_strdup(char *str);
 char *_getenv(char *name);
 int _printenv(void);
 int _str_n_cmp(char *s1, char *s2, int n);
+char *command_path(char *cmd);
+int execute(char *cmd_array[]);
+int command_read(char *s, size_t __attribute__ ((unused))characters);
 
 #endif

@@ -9,13 +9,13 @@ int _printenv(void)
 	char *str;
 
 	str = environ[0];
-	len = _strlen(str);
+	len = strlen(str);
 	while (str[i] != '\0')
 	{
 		/** 1 means standard output */
 		write(1, str, len);
 		write(1, "\n", 1);
-		str = environ[i++];
+		str = environ[++i];
 	}
 	return (0);
 }
@@ -28,17 +28,12 @@ char *_getenv(char *name)
 {
 	int i = 0, len;
 
-	len = _strlen(name);
+	len = strlen(name);
 	while (environ[i] != NULL)
 	{
-		if (_str_n_cmp(environ[i], name, _strlen(name)) == 0)
+		if (strncmp(environ[i], name, strlen(name)) == 0)
 			return (&environ[i][len]);
 		i++;
 	}
 	return (NULL);
-}
-int main()
-{
-	printf("%s\n", _getenv("HOME"));
-	return (0);
 }
