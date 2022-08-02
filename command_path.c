@@ -31,7 +31,7 @@ char *command_path(char *cmd)
 		if (stat(new_path, &buf) == 0)
 		{
 			free(path);
-			return(new_path);
+			return (new_path);
 		}
 		else
 		{
@@ -41,6 +41,6 @@ char *command_path(char *cmd)
 	free(path);
 	free(new_path);
 	if (stat(cmd, &buf) == 0)
-		return(strdup(cmd));
+		return(strdup (cmd));
 	return (NULL);
 }

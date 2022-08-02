@@ -4,7 +4,7 @@ char *name;
  * main - point of entry
  * @argc: argument count
  * @argv: argument vector
- * @Return: 1 if successful | 0 otherwise
+ * Return: 1 if successful | 0 otherwise
  */
 int main(int __attribute__ ((unused))argc, char **argv)
 {
@@ -39,7 +39,7 @@ int main(int __attribute__ ((unused))argc, char **argv)
  * command_read - called from main
  * @s: string
  * @characters: size_t
- * Return: int 
+ * Return: int
  */
 int command_read(char *s, size_t __attribute__ ((unused))characters)
 {
@@ -100,7 +100,7 @@ int execute(char *cmd_array[])
 		{
 			execve(exe_path, cmd_array, environ);
 			perror("error");
-			exit (1);
+			exit(1);
 		}
 		else
 		{
