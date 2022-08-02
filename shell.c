@@ -1,4 +1,5 @@
 #include "shell.h"
+extern char *name;
 /**
  * main - point of entry
  * @argc: argument count
@@ -10,9 +11,9 @@ int main(int argc, char **argv)
 	char *line = NULL;
 	ssize_t buf_size;
 	int chars = 0;
-	char *name = argv[0];
 
-	while 1
+	name = argv[0];
+	while (1)
 	{
 		if (isatty(STDIN_FILENO) == 1)
 			printf("$ ");
@@ -46,16 +47,17 @@ int command_read(char *s, size_t characters)
 	int *cmd_array[100];
 	int i = 0;
 
-	if (cmp(s, "exit") == 0)
+	if (_strcmp(s, "exit") == 0)
 		return (2);
-	if (cmp(s, "env") == 0)
-		return (printenv);
+	if (_strcmp(s, "env") == 0)
+		return (_printenv());
 
-	token = strok(s, " ");
+	token = strtok(s, " ");
 	while (token)
 	{
 		cmd_array[i] = token;
 		i++;
+		token = strtok(NULL, " ");
 	}
 	cmd_array[i] = '\0';
 	return (execute(cmd_array));
@@ -68,9 +70,10 @@ int command_read(char *s, size_t characters)
 int execute(char *cmd_array)
 {
 	char *exe_path = NULL, *cmd = NULL;
+	int pid, status;
 
 	cmd = cmd_array[0];
-	exe_path = command_path[cmd];
+	exe_path = command_path(cmd);
 
 	if (exe_path == NULL)
 	{
@@ -89,7 +92,7 @@ int execute(char *cmd_array)
 	}
 	else if (pid == 0)
 	{
-		execve(exe_path, cmd_arr, environ)
+		execve(exe_path, cmd_array, environ);
 	}
 	free(exe_path);
 	return (0);
