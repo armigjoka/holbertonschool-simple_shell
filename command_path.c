@@ -13,7 +13,7 @@ char *command_path(char *cmd)
 
 	new_path = malloc(sizeof(char) * 100);
 	if (_getenv("PATH")[0] == ':')
-		if (stat(cmd, &buf) == 0)
+		if (stat(cmd, & buf) == 0)
 			return (strdup(cmd));
 	while (tokens != NULL)
 	{
