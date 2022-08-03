@@ -15,6 +15,7 @@ char *command_path(char *cmd)
 	if (_getenv("PATH")[0] == ':')
 		if (stat(cmd, &buf) == 0)
 			return (strdup(cmd));
+	
 	while (tokens != NULL)
 	{
 		path_array[i] = tokens;
@@ -22,6 +23,7 @@ char *command_path(char *cmd)
 		tokens = strtok(NULL, ":");
 	}
 	path_array[i] = NULL;
+	
 	for (i = 0; path_array[i]; i++)
 	{
 		strcpy(new_path, path_array[i]);
