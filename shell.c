@@ -1,5 +1,5 @@
 #include "shell.h"
-char *name;
+
 /**
  * main - point of entry
  * @argc: argument count
