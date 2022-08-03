@@ -6,15 +6,15 @@
  */
 char *command_path(char *cmd)
 {
-	char *path = strdup(_getenv("PATH")), *path_array[100];
+	char *path = _strdup(_getenv("PATH")), *path_array[100];
 	char *new_path = NULL, *tokens = strtok(path, ":");
 	int i = 0;
 	struct stat buf;
 
 	new_path = malloc(sizeof(char) * 100);
 	if (_getenv("PATH")[0] == ':')
-		if (stat(cmd, & buf) == 0)
-			return (strdup(cmd));
+		if (stat(cmd, &buf) == 0)
+			return (_strdup(cmd));
 	while (tokens != NULL)
 	{
 		path_array[i] = tokens;
@@ -40,7 +40,7 @@ char *command_path(char *cmd)
 	}
 	free(path);
 	free(new_path);
-	if (stat(cmd, & buf) == 0)
-		return (strdup(cmd));
+	if (stat(cmd, &buf) == 0)
+		return (_strdup(cmd));
 	return (NULL);
 }
