@@ -17,16 +17,11 @@ int _str_n_cmp(char *s1, char *s2, int n)
 		if (c1 == '\0' || c1 != c2)
 		{
 			if (c1 > c2)
-			{
 				return (1);
-			}
+			if (c1 < c2)
+				return (-1);
 			else
-			{
-				if (c1 < c2)
-					return (-1);
-				else
-					return (0);
-			}
+				return (0);
 		}
 	}
 	return (0);
