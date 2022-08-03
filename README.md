@@ -18,13 +18,11 @@ What is the difference of the a function and a system call?
 
 What are the three prototypes of main file.
 
-How does the sehll use the Path command to find the programs?
+How does the shell use the Path command to find the programs?
 
 How to execute the program wiht the execve system call?
 
 Files included in the repository:
-
-README.md:
 
 Description of what is done on simple shell program created by us.
 
@@ -59,8 +57,6 @@ Is a signed integer type which is capable of representing a process of ID.
 Getpid.c:
 
 Function which returns the process of ID of the current process.
-
-
 
 
 Installation process:
@@ -128,7 +124,6 @@ env:
 Show the environment of variables.
 
 Usage: To show the environment of variables.
-
 
 
 Examples:
@@ -268,4 +263,4 @@ All header files are included guarded.
 
 Also we have used the system calls.
 
-Authors of the project are: Armela Gjoka, viviani22
+Authors of the project are: armigjoka, viviani22
