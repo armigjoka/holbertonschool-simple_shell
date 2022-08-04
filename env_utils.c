@@ -1,25 +1,21 @@
 #include "shell.h"
 /**
- * _printenv - called from main
- * Return: int
+ * _printenv - function that prints the environmental variables
+ * Return: 0
  */
 int _printenv(void)
 {
-	int i = 0, len;
-	char *str;
+	int i = 0;
 
-	str = environ[0];
-	len = strlen(str);
-	while (str[i] != '\0')
+	while (environ[i])
 	{
-		/** 1 means standard output */
-		write(1, str, len);
-		write(1, "\n", 1);
-		str = environ[i];
-		++i;
+		write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
+		write(STDOUT_FILENO, "\n", 1);
+		i++;
 	}
 	return (0);
 }
+
 /**
  * _getenv - called from main
  * @name: string
